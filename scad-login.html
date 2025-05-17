@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+  <div class="container" style="padding: 40px; max-width: 500px; margin: auto;">
+    <h2>SCAD Admin Login</h2>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="login-error" style="color: red;"></p>
+    <br />
+    <a href="scad-register.html">New Admin? Register</a>
+  </div>
+
+  <script src="auth-admin.js"></script>
+</body>
+</html>

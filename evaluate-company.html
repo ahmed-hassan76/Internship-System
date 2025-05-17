@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evaluate Company</title>
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+  <div class="form-container" style="max-width: 600px; margin: 40px auto;">
+    <h2>Company Evaluation</h2>
+    <form id="evaluation-form">
+      <label for="feedback">Your Feedback</label>
+      <textarea id="feedback" rows="5" placeholder="What was your experience like?" required></textarea>
+
+      <label>
+        <input type="checkbox" id="recommend" />
+        I recommend this company to other students
+      </label>
+
+      <button type="submit">Save Evaluation</button>
+      <button type="button" id="delete-btn" style="background: #e74c3c;">Delete Evaluation</button>
+    </form>
+    <br />
+    <a href="student-dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <script src="evaluate-company.js"></script>
+</body>
+</html>

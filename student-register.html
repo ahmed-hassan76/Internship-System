@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+  <div class="container" style="padding: 40px; max-width: 500px; margin: auto;">
+    <h2>Student Registration</h2>
+    <form id="register-form">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Register</button>
+    </form>
+    <p id="register-error" style="color: red;"></p>
+    <br />
+    <a href="student-login.html">Already registered? Login</a>
+  </div>
+
+  <script src="auth-student.js"></script>
+</body>
+</html>

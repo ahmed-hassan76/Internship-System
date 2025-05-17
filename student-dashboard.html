@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+  <header style="background: #2c3e50; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+    <h2>Student Dashboard</h2>
+    <div>
+        <a href="calls.html" style="color: white; text-decoration: none; margin-right: 20px;">Calls & Appointments</a>
+        <button id="logout-btn" style="background: #e74c3c; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
+          Logout
+        </button>
+      </div>
+  </header>
+
+  <div class="container" style="display: flex;">
+    <nav class="sidebar" style="width: 250px; padding: 20px;">
+      <h2>Student Panel</h2>
+      <div class="cta" style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="workshops.html" class="dash-button">Workshops</a>
+        <a href="browse-internships.html" class="dash-button">Browse Internships</a>
+        <a href="my-applications.html" class="dash-button">My Applications</a>
+        <a href="student-profile.html" class="dash-button">My Profile</a>
+      </div>
+    </nav>
+
+    <main class="dashboard-content" style="flex: 1; padding: 20px;">
+      <section style="margin-top: 20px;">
+        <h3>Suggested Internships</h3>
+        <div id="internship-cards" class="internship-list" style="display: flex; flex-direction: column; gap: 16px;"></div>
+      </section>
+
+      <div style="display: flex; gap: 40px; margin-top: 40px;">
+        <!-- Academic Info -->
+        <section style="flex: 1;">
+          <h3>My Academic Info</h3>
+          <form id="academic-form" style="display: flex; flex-direction: column; gap: 10px; max-width: 400px;">
+            <label for="major">Select Major:</label>
+            <select id="major" required>
+              <option value="">-- Select Major --</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Design">Design</option>
+              <option value="Business">Business</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Engineering">Engineering</option>
+            </select>
+
+            <label for="semester">Select Semester Number:</label>
+            <select id="semester" required>
+              <option value="">-- Select Semester --</option>
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <option value="3">Semester 3</option>
+              <option value="4">Semester 4</option>
+              <option value="5">Semester 5</option>
+              <option value="6">Semester 6</option>
+              <option value="7">Semester 7</option>
+              <option value="8">Semester 8</option>
+            </select>
+
+            <button type="submit">Save Academic Info</button>
+          </form>
+        </section>
+
+        <!-- Internship History & Feedback -->
+        <section style="flex: 2;">
+          <h3>My Internship History</h3>
+          <div style="margin-bottom: 10px;">
+            <input type="text" id="intern-search" placeholder="Search internships..." style="width: 60%; padding: 8px;" />
+            <select id="intern-status">
+              <option value="">All</option>
+              <option value="Current Intern">Current Intern</option>
+              <option value="Internship Complete">Internship Complete</option>
+            </select>
+          </div>
+          <div id="intern-history-list"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <section id="upcoming-workshops" style="margin-top: 40px;">
+    <h3>Upcoming Career Workshops</h3>
+    <div id="workshop-view-list"></div>
+  </section>
+  
+  <!-- Companies That Viewed Me -->
+<section style="margin-top: 40px;">
+    <h3>Companies That Viewed My Profile</h3>
+    <ul id="company-views"></ul>
+  </section>
+  
+  <!-- Online Assessments -->
+  <section style="margin-top: 40px;">
+    <h3>Online Assessments</h3>
+    <div id="assessment-list"></div>
+    <div id="assessment-quiz" style="margin-top: 20px;"></div>
+    <div id="score-display" style="margin-top: 20px;"></div>
+  </section>
+  
+  <script src="student.js"></script>
+  <script src="logout.js"></script>
+  <script src="auth-guard.js"></script>
+</body>
+</html>

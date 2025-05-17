@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Browse Internships</title>
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Browse Internships</h2>
+
+    <div style="margin-bottom: 20px;">
+      <input type="text" id="search-input" placeholder="Search by title or company..." style="width: 60%; padding: 8px;" />
+      <select id="industry-filter">
+        <option value="">Industry</option>
+        <option value="Design">Design</option>
+        <option value="Development">Development</option>
+        <option value="Marketing">Marketing</option>
+      </select>
+      <select id="duration-filter">
+        <option value="">Duration</option>
+        <option value="1 month">1 month</option>
+        <option value="3 months">3 months</option>
+        <option value="6 months">6 months</option>
+      </select>
+      <select id="paid-filter">
+        <option value="">Paid?</option>
+        <option value="yes">Paid</option>
+        <option value="no">Unpaid</option>
+      </select>
+    </div>
+
+    <div id="internship-list"></div>
+    <a href="student-dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <script src="browse-internships.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Workshops</title>
+  <link rel="stylesheet" href="global.css" />
+  <style>
+    body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+    section { background: white; margin-bottom: 20px; padding: 20px; border-radius: 8px; }
+    .chat-box, textarea, input, select, button { width: 100%; margin-top: 10px; }
+    .video-controls button { margin-right: 10px; }
+    .chat-log { height: 120px; overflow-y: auto; background: #eee; padding: 10px; }
+  </style>
+</head>
+<body>
+
+<section>
+  <h3>Upcoming Workshops</h3>
+  <div id="workshop-list"></div>
+</section>
+
+<section id="workshop-detail" style="display: none;">
+  <h3 id="w-title"></h3>
+  <p><strong>Start:</strong> <span id="w-start"></span></p>
+  <p><strong>End:</strong> <span id="w-end"></span></p>
+  <p><strong>Speaker:</strong> <span id="w-speaker"></span></p>
+  <p><strong>Agenda:</strong> <span id="w-agenda"></span></p>
+  <p><strong>Description:</strong> <span id="w-desc"></span></p>
+  <button onclick="registerForWorkshop()">Register</button>
+</section>
+
+<section id="live-workshop" style="display: none;">
+  <h3>Live Workshop Interface</h3>
+  <div class="video-controls">
+    <button onclick="alert('Playing video')">Play</button>
+    <button onclick="alert('Paused video')">Pause</button>
+    <button onclick="alert('Stopped video')">Stop</button>
+  </div>
+  <textarea placeholder="Take notes here..."></textarea>
+  <button onclick="alert('Certificate downloaded!')">Download Certificate</button>
+  <h4>Rate this Workshop</h4>
+  <select><option>⭐⭐⭐⭐⭐</option><option>⭐⭐⭐⭐</option><option>⭐⭐⭐</option><option>⭐⭐</option><option>⭐</option></select>
+  <textarea placeholder="Leave feedback..."></textarea>
+  <button onclick="alert('Feedback submitted!')">Submit Feedback</button>
+
+  <h4>Live Chat</h4>
+  <div class="chat-log" id="chat-log"></div>
+  <input type="text" id="chat-message" placeholder="Type a message..." />
+  <button onclick="sendMessage()">Send</button>
+</section>
+
+<script>
+  const workshops = JSON.parse(localStorage.getItem("workshops")) || [];
+  const user = JSON.parse(localStorage.getItem("activeUser")) || {};
+  const regKey = `registered-workshops-${user.email}`;
+  const registered = JSON.parse(localStorage.getItem(regKey)) || [];
+
+  function renderWorkshops() {
+    const container = document.getElementById("workshop-list");
+    const upcoming = workshops.filter(w => new Date(w.start) > new Date());
+    container.innerHTML = upcoming.map((w, i) => `
+      <div>
+        <strong>${w.name}</strong> – ${new Date(w.start).toLocaleString()}
+        <button onclick="showDetail(${i})">Details</button>
+      </div>
+    `).join("");
+  }
+
+  function showDetail(index) {
+    const w = workshops[index];
+    document.getElementById("w-title").textContent = w.name;
+    document.getElementById("w-start").textContent = new Date(w.start).toLocaleString();
+    document.getElementById("w-end").textContent = new Date(w.end).toLocaleString();
+    document.getElementById("w-speaker").textContent = w.speaker;
+    document.getElementById("w-agenda").textContent = w.agenda;
+    document.getElementById("w-desc").textContent = w.description;
+    document.getElementById("workshop-detail").style.display = "block";
+  }
+
+  function registerForWorkshop() {
+    alert("You registered! We'll notify you.");
+    registered.push(document.getElementById("w-title").textContent);
+    localStorage.setItem(regKey, JSON.stringify(registered));
+    setTimeout(() => {
+      alert("🔔 Reminder: Your workshop is starting soon!");
+      document.getElementById("workshop-detail").style.display = "none";
+      document.getElementById("live-workshop").style.display = "block";
+    }, 3000);
+  }
+
+  function sendMessage() {
+    const msg = document.getElementById("chat-message").value;
+    const log = document.getElementById("chat-log");
+    if (msg.trim()) {
+      log.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+      document.getElementById("chat-message").value = "";
+      setTimeout(() => {
+        log.innerHTML += `<div><strong>Attendee:</strong> Got your message!</div>`;
+        alert("📢 New chat message received!");
+      }, 1500);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", renderWorkshops);
+</script>
+
+</body>
+</html>

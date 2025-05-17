@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile</title>
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+  <div class="form-container" style="max-width: 600px; margin: 40px auto;">
+    <h2>My Profile</h2>
+    <form id="profile-form">
+      <label>Job Interests</label>
+      <input type="text" id="interests" placeholder="e.g. design, data analysis, marketing" required />
+
+      <label>Previous Jobs/Internships</label>
+      <textarea id="experience" placeholder="Responsibilities, duration, company names..." rows="4"></textarea>
+
+      <label>College Activities</label>
+      <textarea id="activities" placeholder="e.g. club roles, event participation, leadership..." rows="3"></textarea>
+
+      <label>Upload Resume</label>
+<input type="file" id="resume" accept=".pdf,.doc,.docx" />
+<p id="resume-status" style="font-size: 14px; color: #555;"></p>
+
+      <button type="submit">Save Profile</button>
+    </form>
+    <br />
+    <a href="student-dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <script src="student-profile.js"></script>
+</body>
+</html>

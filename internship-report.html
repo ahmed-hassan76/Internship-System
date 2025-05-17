@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internship Report</title>
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+  <div class="form-container" style="max-width: 600px; margin: 40px auto;">
+    <h2>Internship Report</h2>
+    <form id="report-form">
+        <input type="text" id="title" placeholder="Report Title" required />
+        <textarea id="intro" rows="3" placeholder="Introduction" required></textarea>
+        <textarea id="body" rows="6" placeholder="Main Content" required></textarea>
+      
+        <h4>Courses That Helped You</h4>
+        <div id="course-list" style="margin-bottom: 20px;"></div>
+      
+        <label>
+          <input type="checkbox" id="finalized" />
+          Finalize and Submit Report
+        </label>
+      
+        <button type="submit">Save Report</button>
+        <button type="button" id="delete-report" style="background: #e74c3c;">Delete Report</button>
+      </form>
+      
+    <br />
+    <a href="student-dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <script src="internship-report.js"></script>
+</body>
+</html>

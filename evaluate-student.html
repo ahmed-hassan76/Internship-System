@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evaluate Student</title>
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Evaluate Student</h2>
+    <form id="evaluation-form">
+      <textarea id="feedback" placeholder="Write your feedback..." required rows="5"></textarea>
+      <input type="number" id="rating" min="1" max="5" placeholder="Rating (1-5)" required />
+      <button type="submit">Save Evaluation</button>
+      <button type="button" id="delete-btn" style="background: #e74c3c;">Delete Evaluation</button>
+    </form>
+    <br />
+    <a href="employer-dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <script src="evaluate-student.js"></script>
+</body>
+</html>

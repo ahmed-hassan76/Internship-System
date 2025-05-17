@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employer Dashboard</title>
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+    <header style="background: #2c3e50; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+        <h2>Company Dashboard</h2> <!-- Change this per dashboard -->
+        <button id="logout-btn" style="background: #e74c3c; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
+          Logout
+        </button>
+      </header>
+      
+  <div class="container">
+    <nav class="sidebar">
+      <h2>Employer Panel</h2>
+      <div class="cta" style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="post-internship.html" class="dash-button">Post New Internship</a>
+        <a href="view-applications.html" class="dash-button">View Applications</a>
+        <a href="company-profile.html" class="dash-button">Company Profile</a>
+        <section style="margin-top: 40px;">
+            <section style="margin-top: 40px;">
+                <h3>All Internships in SCAD</h3>
+              
+                <div style="margin-bottom: 20px;">
+                  <input type="text" id="search-input" placeholder="Search by job title or company..." style="width: 60%; padding: 8px;"/>
+                  <select id="industry-filter">
+                    <option value="">Filter by Industry</option>
+                    <option value="Design">Design</option>
+                    <option value="Development">Development</option>
+                    <option value="Marketing">Marketing</option>
+                  </select>
+                  <select id="duration-filter">
+                    <option value="">Filter by Duration</option>
+                    <option value="1 month">1 month</option>
+                    <option value="3 months">3 months</option>
+                    <option value="6 months">6 months</option>
+                  </select>
+                  <select id="paid-filter">
+                    <option value="">Paid or Unpaid</option>
+                    <option value="yes">Paid</option>
+                    <option value="no">Unpaid</option>
+                  </select>
+                </div>
+              
+                <div id="all-internships-list"></div>
+              </section>
+              
+            <div id="all-internships-list"></div>
+          </section>
+          
+    </div>
+      
+    </nav>
+
+
+
+    <main class="dashboard-content">
+      <section>
+  <h3>Your Posted Internships</h3>
+
+  <div style="margin-bottom: 20px;">
+    <input type="text" id="my-search" placeholder="Search your internships..." style="width: 60%; padding: 8px;"/>
+    <select id="my-category">
+      <option value="">All Categories</option>
+      <option value="Design">Design</option>
+      <option value="Development">Development</option>
+      <option value="Marketing">Marketing</option>
+    </select>
+    <select id="my-paid">
+      <option value="">Paid/Unpaid</option>
+      <option value="yes">Paid</option>
+      <option value="no">Unpaid</option>
+    </select>
+    <select id="my-duration">
+      <option value="">Duration</option>
+      <option value="1 month">1 month</option>
+      <option value="3 months">3 months</option>
+      <option value="6 months">6 months</option>
+    </select>
+  </div>
+
+  <div id="internship-list"></div>
+
+  <section style="margin-top: 40px;">
+    <h3>My Interns</h3>
+  
+    <div style="margin-bottom: 20px;">
+      <input type="text" id="intern-search" placeholder="Search interns by name or job title..." style="width: 60%; padding: 8px;" />
+      <select id="intern-status-filter">
+        <option value="">Filter by Status</option>
+        <option value="Current Intern">Current Intern</option>
+        <option value="Internship Complete">Internship Complete</option>
+      </select>
+    </div>
+  
+    <div id="intern-list"></div>
+  </section>
+  
+  <section style="margin-top: 40px;">
+    <h3>Company Verification Documents</h3>
+    <form id="verification-upload-form">
+      <input type="file" id="verification-doc" accept=".pdf,.doc,.docx,.jpg,.png" required />
+      <button type="submit">Upload</button>
+    </form>
+    <p id="verification-status"></p>
+  </section>  
+
+
+      
+    </main>
+  </div>
+
+  <script src="employer.js"></script>
+  <script src="logout.js"></script>
+  <script src="auth-guard.js"></script>
+
+</body>
+</html>

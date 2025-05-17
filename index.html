@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SCAD Internship Portal</title>
+  <link rel="stylesheet" href="global.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    header nav a,
+    #logout-btn {
+      color: #ecf0f1;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .hero {
+      background: #3498db;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero .cta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .hero .cta a {
+      background: white;
+      color: #3498db;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .features, .how-it-works, .roles {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .features h3, .how-it-works h3, .roles h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .features .grid, .roles .grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .features .card, .roles .card {
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      flex: 1 1 250px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .how-it-works ol {
+      max-width: 700px;
+      margin: auto;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2c3e50;
+      color: white;
+    }
+    .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #34495e;
+  min-width: 180px;
+  border-radius: 4px;
+  z-index: 1;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: #ecf0f1;
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #2c3e50;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SCAD Internship Portal</h1>
+    <nav id="nav-links"></nav>
+  </header>
+
+  <section class="hero">
+    <h2>Launch Your Career with Real Experience</h2>
+    <p>Students, Employers, and Admins collaborate in one place to manage internships efficiently.</p>
+    <div class="cta">
+        <a id="student-btn" href="student-login.html?next=student-dashboard.html">I'm a Student</a>
+        <a id="company-btn" href="company-login.html?next=employer-dashboard.html">I'm a Company</a>
+        <a id="scad-btn" href="scad-login.html?next=admin-dashboard.html">I'm a SCAD Member</a>
+      </div>
+      
+  </section>
+
+  <section class="features">
+    <h3>Why Use This Portal?</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>Centralized Internship Listings</h4>
+        <p>Browse, filter, and apply for opportunities from trusted employers.</p>
+      </div>
+      <div class="card">
+        <h4>Easy Management</h4>
+        <p>Employers can post, edit, and track applications with ease.</p>
+      </div>
+      <div class="card">
+        <h4>Admin Moderation</h4>
+        <p>SCAD staff ensure all listings are real, fair, and valuable for students.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <h3>How It Works</h3>
+    <ol>
+      <li>Students register and complete their profiles.</li>
+      <li>Employers post internships for review and approval.</li>
+      <li>Students browse and apply. Admins oversee the system.</li>
+    </ol>
+  </section>
+
+  <section class="roles">
+    <h3>Quick Access by Role</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>Student Access</h4>
+        <a id="student-role-link" href="#">Go to Dashboard</a>
+      </div>
+      <div class="card">
+        <h4>Employer Access</h4>
+        <a id="employer-role-link" href="#">Go to Dashboard</a>
+      </div>
+      <div class="card">
+        <h4>Admin Panel</h4>
+        <a id="admin-role-link" href="#">SCAD Panel</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 SCAD Internship Portal
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const nav = document.getElementById("nav-links");
+      const user = JSON.parse(localStorage.getItem("activeUser"));
+
+      if (user) {
+        let dash = "";
+        if (user.role === "student") dash = "student-dashboard.html";
+        if (user.role === "company") dash = "employer-dashboard.html";
+        if (user.role === "admin") dash = "admin-dashboard.html";
+
+        nav.innerHTML = `
+          <a href="${dash}">Dashboard</a>
+          <button id="logout-btn">Logout</button>
+        `;
+
+        document.getElementById("logout-btn").addEventListener("click", () => {
+          localStorage.removeItem("activeUser");
+          window.location.href = "index.html";
+        });
+      } else {
+        nav.innerHTML = `
+  <div class="dropdown">
+    <button class="dropdown-btn">Login ▾</button>
+    <div class="dropdown-content">
+      <a href="student-login.html">Student Login</a>
+      <a href="company-login.html">Company Login</a>
+      <a href="scad-login.html">SCAD Login</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown-btn">Register ▾</button>
+    <div class="dropdown-content">
+      <a href="student-register.html">Student Register</a>
+      <a href="company-register.html">Company Register</a>
+      <a href="scad-register.html">SCAD Register</a>
+    </div>
+  </div>
+`;
+
+      }
+
+      // Adjust main CTA buttons if user is not logged in
+      if (!user) {
+  document.getElementById("student-btn").href = "student-login.html?next=student-dashboard.html";
+  document.getElementById("company-btn").href = "company-login.html?next=employer-dashboard.html";
+  document.getElementById("scad-btn").href = "scad-login.html?next=admin-dashboard.html";
+}
+const studentLink = document.getElementById("student-role-link");
+const employerLink = document.getElementById("employer-role-link");
+const adminLink = document.getElementById("admin-role-link");
+
+if (studentLink) {
+  studentLink.href = user ? "student-dashboard.html" : "student-login.html?next=student-dashboard.html";
+}
+if (employerLink) {
+  employerLink.href = user ? "employer-dashboard.html" : "company-login.html?next=employer-dashboard.html";
+}
+if (adminLink) {
+  adminLink.href = user ? "admin-dashboard.html" : "scad-login.html?next=admin-dashboard.html";
+}
+
+    });
+  </script>
+
+</body>
+</html>
